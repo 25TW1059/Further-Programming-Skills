@@ -14,10 +14,18 @@ namespace Web_APIs
     {
         static void Main(string[] args)
         {
-            string word_previous = "drink";
-            string word_next = NextWord(word_previous);
+            string startingWord = "Hello";
 
-            Console.WriteLine(word_next);
+            Console.Write(startingWord + " ");
+
+            string previousWord = startingWord;
+
+            do
+            {
+                string nextWord = NextWord(previousWord);
+                Console.Write(nextWord + " ");
+                previousWord = nextWord;
+            } while (previousWord != ".");
         }
 
         static string NextWord(string word_previous)
@@ -44,11 +52,23 @@ namespace Web_APIs
 
             string word_next = "";
 
+            Random rng = new Random();
             foreach (Word w in response_suggestedWords)
             {
-                if (w.word == ".") continue;
+                if (w.word == ".")
+                {
+                    if (rng.NextDouble() < 0.05)
+                    {
+                        word_next = w.word;
+                        break;
+                    }
+                }
                 else
                 {
+                    if (rng.NextDouble() < 0.7)
+                    {
+                        continue;
+                    }
                     word_next = w.word;
                     break;
                 }
