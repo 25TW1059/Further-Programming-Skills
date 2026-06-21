@@ -14,27 +14,47 @@ namespace Web_APIs
     {
         static void Main(string[] args)
         {
-            WebRequest request = WebRequest.Create("https://xkcd.com/info.0.json");
+            string word_previous = "drink";
+            string word_next = NextWord(word_previous);
+
+            Console.WriteLine(word_next);
+        }
+
+        static string NextWord(string word_previous)
+        {
+            /*
+             * Creates a web request to access the list of suggested next
+             * words from the API, then selects and returns the first word
+             * that is not a full stop.
+            */
+
+            WebRequest request = WebRequest.Create($"https://api.datamuse.com/words?lc={word_previous}&sp=*");
             request.Method = WebRequestMethods.Http.Get;
             request.ContentType = "application/json; charset=utf-8;";
 
-            string text;
+            string response_text;
 
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            using (StreamReader sr = new StreamReader(response.GetResponseStream()))
+            WebResponse response_json = request.GetResponse();
+            using (StreamReader reader = new StreamReader(response_json.GetResponseStream()))
             {
-                text = sr.ReadToEnd();
+                response_text = reader.ReadToEnd();
+            }
+           
+            List<Word> response_suggestedWords = JsonSerializer.Deserialize<List<Word>>(response_text);
+
+            string word_next = "";
+
+            foreach (Word w in response_suggestedWords)
+            {
+                if (w.word == ".") continue;
+                else
+                {
+                    word_next = w.word;
+                    break;
+                }
             }
 
-            Console.WriteLine(text + "\n\n");
-
-            Comic comic = JsonSerializer.Deserialize<Comic>(text);
-
-
-            Console.WriteLine($"Title: {comic.title}, Published: {comic.day}-{comic.month}-{comic.year}\n{comic.alt}");
-
-            Console.ReadKey();
+            return word_next;
         }
     }
 }
