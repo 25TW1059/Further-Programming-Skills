@@ -14,7 +14,22 @@ namespace Web_APIs
     {
         static void Main(string[] args)
         {
-            string startingWord = "Hello";
+            /*
+             * This program is a basic text generator, that continually uses
+             * the previous word to suggest the next. The input is taken in
+             * from the console, the program continually writes out the next
+             * suggested word from the API, with a chance to stop every time
+             * the API returns a full stop as the suggested word. There is a
+             * random weighting in the function that decides the next word,
+             * to avoid infinite loops of words from forming. Using this
+             * program is similar to typing a word on a phone's keyboard, and
+             * then continually accepting the suggested words in the box
+             * above the keyboard.
+            */
+
+            string startingWord = Console.ReadLine();
+
+            Console.Clear();
 
             Console.Write(startingWord + " ");
 
