@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Flashcard_App
 {
@@ -20,31 +21,16 @@ namespace Flashcard_App
 
         private void SaveFlashcard_Button_Click(object sender, EventArgs e)
         {
-            string filename = FlashcardName_TextBox.Text.ToLower().Replace(" ", "") + ".txt";
-            string filepath = Directory.GetCurrentDirectory() + $@"\{filename}";
 
-            using (StreamWriter writer = new StreamWriter(filename))
-            {
-                writer.WriteLine(";begin flashcardname");
-                writer.WriteLine(FlashcardName_TextBox.Text);
-                writer.WriteLine(";end flashcardname");
+            string name = FlashcardName_TextBox.Text;
+            string subject = FlashcardSubject_TextBox.Text;
+            string creator = FlashcardCreator_TextBox.Text;
+            string[] frontside = FlashcardFrontside_RichTextBox.Lines;
+            string[] backside = FlashcardBackside_RichTextBox.Lines;
 
-                writer.WriteLine(";begin flashcardsubject");
-                writer.WriteLine(FlashcardSubject_TextBox.Text);
-                writer.WriteLine(";end flashcardsubject");
+            Flashcard flashcard = new Flashcard(name, subject, creator, frontside, backside);
 
-                writer.WriteLine(";begin flashcardcreator");
-                writer.WriteLine(FlashcardCreator_TextBox.Text);
-                writer.WriteLine(";end flashcardcreator");
-
-                writer.WriteLine(";begin flashcardfrontside");
-                writer.WriteLine(FlashcardFrontside_RichTextBox.Text);
-                writer.WriteLine(";end flashcardfrontside");
-
-                writer.WriteLine(";begin flashcardbackside");
-                writer.WriteLine(FlashcardBackside_RichTextBox.Text);
-                writer.WriteLine(";end flashcardbackside");
-            }
+            flashcard.WriteToFile();
 
             FlashcardName_TextBox.Clear();
             FlashcardSubject_TextBox.Clear();
@@ -52,7 +38,7 @@ namespace Flashcard_App
             FlashcardFrontside_RichTextBox.Clear();
             FlashcardBackside_RichTextBox.Clear();
 
-            MessageBox.Show($"Flashcard created successfully at '{filepath}'");
+            MessageBox.Show($"Flashcard created successfully at '{flashcard.filepath}'");
         }
 
         private void MainMenu_Button_Click(object sender, EventArgs e)

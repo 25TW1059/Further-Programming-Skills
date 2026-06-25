@@ -52,6 +52,7 @@
     <Compile Include="CreateFlashcard.Designer.cs">
       <DependentUpon>CreateFlashcard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Flashcard.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
