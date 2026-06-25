@@ -46,6 +46,12 @@ namespace Flashcard_App
                 writer.WriteLine(";end flashcardbackside");
             }
 
+            FlashcardName_TextBox.Clear();
+            FlashcardSubject_TextBox.Clear();
+            FlashcardCreator_TextBox.Clear();
+            FlashcardFrontside_RichTextBox.Clear();
+            FlashcardBackside_RichTextBox.Clear();
+
             MessageBox.Show($"Flashcard created successfully at '{filepath}'");
         }
 
