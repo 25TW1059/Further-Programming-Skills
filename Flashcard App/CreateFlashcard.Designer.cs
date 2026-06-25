@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.FlashcardProperties_GroupBox = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.FlashcardCreator_TextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.FlashcardSubject_TextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.FlashcardName_TextBox = new System.Windows.Forms.TextBox();
             this.FlashcardText_GroupBox = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.FlashcardBackside_RichTextBox = new System.Windows.Forms.RichTextBox();
             this.FlashcardFrontside_RichTextBox = new System.Windows.Forms.RichTextBox();
             this.SaveFlashcard_Button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.MainMenu_Button = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.FlashcardSubject_TextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.FlashcardCreator_TextBox = new System.Windows.Forms.TextBox();
             this.FlashcardProperties_GroupBox.SuspendLayout();
             this.FlashcardText_GroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -62,10 +62,42 @@
             this.FlashcardProperties_GroupBox.TabStop = false;
             this.FlashcardProperties_GroupBox.Text = "Properties";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(35, 125);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 25);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Creator:";
+            // 
+            // FlashcardCreator_TextBox
+            // 
+            this.FlashcardCreator_TextBox.Location = new System.Drawing.Point(133, 125);
+            this.FlashcardCreator_TextBox.Name = "FlashcardCreator_TextBox";
+            this.FlashcardCreator_TextBox.Size = new System.Drawing.Size(1620, 31);
+            this.FlashcardCreator_TextBox.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(35, 85);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(90, 25);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Subject:";
+            // 
+            // FlashcardSubject_TextBox
+            // 
+            this.FlashcardSubject_TextBox.Location = new System.Drawing.Point(133, 85);
+            this.FlashcardSubject_TextBox.Name = "FlashcardSubject_TextBox";
+            this.FlashcardSubject_TextBox.Size = new System.Drawing.Size(1620, 31);
+            this.FlashcardSubject_TextBox.TabIndex = 2;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 48);
+            this.label2.Location = new System.Drawing.Point(35, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 25);
             this.label2.TabIndex = 1;
@@ -90,6 +122,24 @@
             this.FlashcardText_GroupBox.TabIndex = 1;
             this.FlashcardText_GroupBox.TabStop = false;
             this.FlashcardText_GroupBox.Text = "Flashcard";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(898, 47);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(147, 25);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Backside text:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 47);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(149, 25);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Frontside text:";
             // 
             // FlashcardBackside_RichTextBox
             // 
@@ -136,56 +186,6 @@
             this.MainMenu_Button.Text = "Main Menu";
             this.MainMenu_Button.UseVisualStyleBackColor = true;
             this.MainMenu_Button.Click += new System.EventHandler(this.MainMenu_Button_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 47);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 25);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Frontside text:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(913, 47);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(147, 25);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Backside text:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(35, 88);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 25);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Subject:";
-            // 
-            // FlashcardSubject_TextBox
-            // 
-            this.FlashcardSubject_TextBox.Location = new System.Drawing.Point(133, 85);
-            this.FlashcardSubject_TextBox.Name = "FlashcardSubject_TextBox";
-            this.FlashcardSubject_TextBox.Size = new System.Drawing.Size(1620, 31);
-            this.FlashcardSubject_TextBox.TabIndex = 2;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(35, 125);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 25);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Creator:";
-            // 
-            // FlashcardCreator_TextBox
-            // 
-            this.FlashcardCreator_TextBox.Location = new System.Drawing.Point(133, 125);
-            this.FlashcardCreator_TextBox.Name = "FlashcardCreator_TextBox";
-            this.FlashcardCreator_TextBox.Size = new System.Drawing.Size(1620, 31);
-            this.FlashcardCreator_TextBox.TabIndex = 4;
             // 
             // CreateFlashcard
             // 
